@@ -14,14 +14,10 @@ function removeDuplicates(string) {
         let letter = stringArr[i];
         let hashCheck = checkMap.get(letter);
         console.log('letter', letter, 'hashCheck', hashCheck);
-        if (hashCheck.error) {
-            continue;
-        } else
         if (hashCheck) {
             newArr.push(letter);
+            checkMap.delete(letter);
         }
-        
-        checkMap.delete(letter);
     }
     // console.log(newArr);
 }
