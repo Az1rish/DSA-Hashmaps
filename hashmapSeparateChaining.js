@@ -23,15 +23,16 @@ class HashMap {
         }
         // Find the slot where this key should be in
         const index = this._findSlot(key);
-
-        if (!this._hashTable[index]) {
+        if (this._hashTable[index] === undefined) {
+            this._hashTable[index] = new LinkedList();
             this.length++;
         }
-        this._hashTable[index] = {
+        this._hashTable[index].insertLast({
             key,
             value,
             DELETED: false
-        };
+        });
+        console.log(this._hashTable[index]);
     }
 
     delete(key) {
@@ -48,13 +49,7 @@ class HashMap {
     _findSlot(key) {
         const hash = HashMap._hashString(key);
         const start = hash % this._capacity;
-        let spot = this._hashTable[start];
-
-        if (!spot) {
-            spot = new LinkedList();
-        } else if (!spot.find(key)) {
-            spot.insertLast(key);
-        }
+        return start;
     }
 
     _resize(size) {
