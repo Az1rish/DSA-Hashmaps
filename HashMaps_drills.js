@@ -1,5 +1,5 @@
-const HashMap = require('./hashMap');
-
+// const HashMap = require('./hashMap');
+const HashMap = require('./hashmapSeparateChaining');
 
 function main() {
     let lotr = new HashMap();
@@ -22,6 +22,6 @@ function main() {
     return lotr;
 }
 
-// console.log(main());
-console.log(main().get('Maiar'));
-console.log(main().get('Hobbit'));
+console.log(main());
+// console.log(main().get('Maiar'));
+// console.log(main().get('Hobbit'));

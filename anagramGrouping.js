@@ -25,7 +25,7 @@ function anagramGrouping(arr) {
                 let letter = arr[i][j];
                 let index = testHash._findSlot(letter);
                 let checkHash = testHash._hashTable[index];
-                // if a letter isn't in hashmap, jump out of loop, that array isn't an anagram with the word in the container
+                // if a letter isn't in hashmap, jump out of loops, that array isn't an anagram with the word in the container
                 if (!checkHash) {
                     continue top;
                 }
