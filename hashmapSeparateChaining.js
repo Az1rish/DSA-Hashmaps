@@ -32,7 +32,6 @@ class HashMap {
             value,
             DELETED: false
         });
-        console.log(this._hashTable[index]);
     }
 
     delete(key) {
@@ -53,17 +52,10 @@ class HashMap {
     }
 
     _resize(size) {
-        const oldSlots = this._hashTable;
         this._capacity = size;
         // Reset the length - it will get rebuilt
         this.length = 0;
         this._hashTable = [];
-
-        for (const slot of oldSlots) { 
-            if (slot !== undefined && !slot.DELETED) {
-                this.set(slot.key, slot.value);
-            }
-        }
     }
 
     static _hashString(string) {
